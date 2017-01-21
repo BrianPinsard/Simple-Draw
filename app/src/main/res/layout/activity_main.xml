@@ -4,11 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.simplemobiletools.draw.MyCanvas
-        android:id="@+id/my_canvas"
+    <com.simplemobiletools.draw.MyBackground
+        android:id="@+id/my_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"/>
+
+    <com.simplemobiletools.draw.MyCanvas
+        android:id="@+id/my_canvas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <ImageView
         android:id="@+id/color_picker"

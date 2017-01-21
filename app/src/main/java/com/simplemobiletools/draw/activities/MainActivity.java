@@ -24,6 +24,7 @@ import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.simplemobiletools.draw.Config;
+import com.simplemobiletools.draw.MyBackground;
 import com.simplemobiletools.draw.MyCanvas;
 import com.simplemobiletools.draw.R;
 import com.simplemobiletools.draw.Svg;
@@ -46,6 +47,7 @@ public class MainActivity extends SimpleActivity implements MyCanvas.PathsChange
     private static final String SAVE_FOLDER_NAME = "Simple Draw";
     private static final int STORAGE_PERMISSION = 1;
 
+    @BindView(R.id.my_background) MyBackground mMyBackground;
     @BindView(R.id.my_canvas) MyCanvas mMyCanvas;
     @BindView(R.id.undo) View mUndoBtn;
     @BindView(R.id.color_picker) View mColorPicker;
@@ -116,7 +118,7 @@ public class MainActivity extends SimpleActivity implements MyCanvas.PathsChange
                 mMyCanvas.clearCanvas();
                 return true;
             case R.id.change_background:
-                int oldColor = ((ColorDrawable) mMyCanvas.getBackground()).getColor();
+                int oldColor = ((ColorDrawable) mMyBackground.getBackground()).getColor();
                 AmbilWarnaDialog dialog = new AmbilWarnaDialog(this, oldColor,
                         new AmbilWarnaDialog.OnAmbilWarnaListener() {
                             @Override
@@ -324,14 +326,15 @@ public class MainActivity extends SimpleActivity implements MyCanvas.PathsChange
     }
 
     private void setBackgroundColor(int pickedColor) {
-        if (Utils.shouldUseWhite(pickedColor)) {
+        boolean isDarkBackground = Utils.shouldUseWhite(pickedColor);
+        if (isDarkBackground) {
             ((ImageView) mUndoBtn).setImageResource(R.mipmap.undo_white);
         } else {
             ((ImageView) mUndoBtn).setImageResource(R.mipmap.undo_black);
         }
-        mMyCanvas.setBackgroundColor(pickedColor);
+        mMyBackground.setBackgroundColor(pickedColor, isDarkBackground);
     }
-
+    
     private void setColor(int pickedColor) {
         color = pickedColor;
         mColorPicker.setBackgroundColor(color);
