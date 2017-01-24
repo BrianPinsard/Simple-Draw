@@ -3,9 +3,11 @@ package com.simplemobiletools.draw;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.preference.PreferenceManager;
 
 public class Config {
     private SharedPreferences mPrefs;
+    private SharedPreferences mSettingsPrefs;
 
     public static Config newInstance(Context context) {
         return new Config(context);
@@ -13,6 +15,7 @@ public class Config {
 
     public Config(Context context) {
         mPrefs = context.getSharedPreferences(Constants.PREFS_KEY, Context.MODE_PRIVATE);
+        mSettingsPrefs = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
     public boolean getIsFirstRun() {
@@ -61,5 +64,9 @@ public class Config {
 
     public void setBackgroundColor(int color) {
         mPrefs.edit().putInt(Constants.BACKGROUND_COLOR_KEY, color).apply();
+    }
+
+    public int getLinesMode() {
+        return Integer.parseInt(mSettingsPrefs.getString("grid_settings_lines", "0"));
     }
 }

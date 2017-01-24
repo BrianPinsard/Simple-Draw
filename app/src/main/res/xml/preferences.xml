@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/grid_settings_title"
+        android:key="grid_settings">
+        <ListPreference
+            android:key="grid_settings_lines"
+            android:summary="@string/grid_settings_lines_modes_default"
+            android:title="@string/grid_settings_lines"
+            android:dialogTitle="@string/grid_settings_lines"
+            android:entries="@array/grid_settings_lines_modes"
+            android:entryValues="@array/grid_settings_lines_modes_index"
+            android:defaultValue="@string/grid_settings_lines_modes_default"/>
+    </PreferenceCategory>
+</PreferenceScreen>

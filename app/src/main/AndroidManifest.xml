@@ -36,6 +36,11 @@
             android:label="@string/settings"
             android:parentActivityName=".activities.MainActivity"/>
 
+        <activity
+            android:name=".activities.NewSettingsActivity"
+            android:label="@string/settings"
+            android:parentActivityName=".activities.MainActivity"/>
+
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.simplemobiletools.draw.fileprovider"

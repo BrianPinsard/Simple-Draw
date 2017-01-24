@@ -81,6 +81,8 @@ public class MainActivity extends SimpleActivity implements MyCanvas.PathsChange
         boolean isStrokeWidthBarEnabled = mConfig.getIsStrokeWidthBarEnabled();
         mStrokeWidthBar.setVisibility(isStrokeWidthBarEnabled ? View.VISIBLE : View.GONE);
         mMyCanvas.setIsStrokeWidthBarEnabled(isStrokeWidthBarEnabled);
+        Log.d(TAG, "onResume: lineMode" + mConfig.getLinesMode());
+        mMyBackground.setGridLines(mConfig.getLinesMode());
     }
 
     @Override
@@ -112,7 +114,8 @@ public class MainActivity extends SimpleActivity implements MyCanvas.PathsChange
                 shareImage();
                 return true;
             case R.id.settings:
-                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+//                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                startActivity(new Intent(getApplicationContext(), NewSettingsActivity.class));
                 return true;
             case R.id.clear:
                 mMyCanvas.clearCanvas();

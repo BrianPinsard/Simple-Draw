@@ -19,6 +19,24 @@
     <string name="brush_size">Show brush size tool</string>
     <string name="clear">Clear</string>
     <string name="change_background">Change background</string>
+    <string name="grid_settings_title">Background grid</string>
+    <string name="grid_settings_state">Enable grid</string>
+    <string name="grid_settings_gap_size">Gap size</string>
+    <string name="grid_settings_lines">Show lines</string>
+    <string name="grid_settings_lines_modes_default">0</string>
+    <string-array name="grid_settings_lines_modes">
+        <item>None</item>
+        <item>Horizontal only</item>
+        <item>Vertical only</item>
+        <item>Horizontal and vertical</item>
+    </string-array>
+    <string-array name="grid_settings_lines_modes_index">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
 
     <!-- About -->
     <string name="about">About</string>
